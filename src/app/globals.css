@@ -1,13 +1,26 @@
-/* --- tokens --- */
+/* --- tokens: light (default) --- */
 :root {
-  --bg: #141210;
-  --surface: #1c1a17;
-  --ink: #e8e2d3;
-  --muted: #a89f8c;
-  --line: #2e2b26;
-  --accent: #d4a852;
-  --accent-soft: rgba(212, 168, 82, 0.12);
+  --bg: #f8f7f3;
+  --ink: #1f1c18;
+  --muted: #56534c;
+  --faint: #8e8b82;
+  --line: #e2ded3;
+  --accent: #4a8577;
+  --linkline: #cdc9bd;
+  --mark: color-mix(in oklab, var(--accent) 26%, var(--bg));
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+}
+
+/* --- tokens: dark --- */
+html[data-theme="dark"] {
+  --bg: #141210;
+  --ink: #e6e0d6;
+  --muted: #a8a094;
+  --faint: #6f6859;
+  --line: #2a251f;
+  --accent: #a6d6c6;
+  --linkline: #3a3833;
 }
 
 /* --- reset --- */
@@ -19,16 +32,24 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  hanging-punctuation: first last;
+}
+
+html, body {
+  background: var(--bg);
 }
 
 body {
-  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
   min-height: 100svh;
+}
+
+::selection {
+  background: var(--mark);
+  color: var(--ink);
 }
 
 /* --- focus --- */
@@ -36,20 +57,6 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
-}
-
-/* --- links --- */
-a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--muted);
-  transition: color 0.12s ease, text-decoration-color 0.12s ease;
-}
-
-a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
 }
 
 /* --- motion --- */
