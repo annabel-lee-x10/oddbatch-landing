@@ -41,7 +41,7 @@ export default function Home() {
         <div className={styles.sectionLabel}>SUBMIT</div>
         <p className={styles.submitBody}>
           Built something small and useful? Send it over &mdash;{" "}
-          <a href="mailto:hello@oddbatch.app">hello@oddbatch.app</a>
+          <a href="mailto:oddbatchapp@gmail.com">oddbatchapp@gmail.com</a>
         </p>
       </section>
 
