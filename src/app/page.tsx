@@ -1,4 +1,5 @@
-import apps from "../../content/apps";
+import Link from "next/link";
+import { apps } from "../../content/apps";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -22,30 +23,18 @@ export default function Home() {
 
       <section className={styles.section}>
         <div className={styles.sectionLabel}>ON THE SHELF</div>
-        {apps.length === 0 ? (
-          <p className={styles.emptyState}>
-            <span className={styles.chevron}>&gt;</span> first batch dropping soon
-          </p>
-        ) : (
-          <ul className={styles.shelfList}>
-            {apps.map((app) => (
-              <li key={app.name} className={styles.shelfRow}>
-                <a
-                  href={app.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.shelfLink}
-                >
-                  <span className={styles.appName}>{app.name}</span>
-                  <span className={styles.appDesc}>{app.oneLine}</span>
-                  <span className={styles.appPlatform}>
-                    {app.platform.join(" / ")}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className={styles.shelfList}>
+          {apps.map((app) => (
+            <li key={app.slug} className={styles.shelfRow}>
+              <Link href={`/apps/${app.slug}`} className={styles.shelfLink}>
+                <span className={styles.rowChevron}>&gt;</span>
+                <span className={styles.rowSlug}>[{app.slug}]</span>
+                <span className={styles.rowName}>{app.name}</span>
+                <span className={styles.rowTagline}>{app.tagline}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.section}>

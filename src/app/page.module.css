@@ -62,18 +62,6 @@
   margin-bottom: 1rem;
 }
 
-/* --- empty state --- */
-.emptyState {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.chevron {
-  color: var(--muted);
-  margin-right: 0.5em;
-  transition: color 0.12s ease;
-}
-
 /* --- shelf list --- */
 .shelfList {
   list-style: none;
@@ -89,42 +77,50 @@
 
 .shelfLink {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.75rem;
+  grid-template-columns: 1.2rem 8rem 1fr auto;
+  gap: 0 0.75rem;
   align-items: baseline;
-  padding: 0.75rem 0;
+  padding: 0.7rem 0;
   text-decoration: none;
   color: var(--ink);
 }
 
-.shelfLink:hover .appName {
+.shelfLink:hover .rowName {
   color: var(--accent);
 }
 
-.shelfLink:hover .chevron {
-  color: var(--accent);
-}
-
-.appName {
-  font-weight: 500;
-  font-size: 0.9rem;
+.rowChevron {
+  color: var(--muted);
+  font-size: 0.85rem;
   transition: color 0.12s ease;
 }
 
-.appDesc {
-  font-size: 0.85rem;
-  color: var(--muted);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.shelfLink:hover .rowChevron {
+  color: var(--accent);
 }
 
-.appPlatform {
-  font-size: 0.7rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.rowSlug {
+  color: var(--accent);
+  font-size: 0.78rem;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowName {
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: color 0.12s ease;
+}
+
+.rowTagline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* --- submit --- */
@@ -177,18 +173,25 @@
   }
 
   .shelfLink {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1.2rem 1fr;
     grid-template-rows: auto auto;
+    gap: 0.1rem 0.5rem;
   }
 
-  .appDesc {
-    grid-column: 1;
-    grid-row: 2;
-    white-space: normal;
-  }
-
-  .appPlatform {
+  .rowSlug {
     grid-column: 2;
     grid-row: 1;
+  }
+
+  .rowName {
+    grid-column: 2;
+    grid-row: 1;
+    display: none;
+  }
+
+  .rowTagline {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
   }
 }
