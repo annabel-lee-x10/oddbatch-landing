@@ -62,6 +62,7 @@ export default function Home() {
         </p>
         <div className={styles.meta}>
           <span>oddbatch.app</span>
+          <Link href="/privacy" className={styles.privacyLink}>Privacy</Link>
           <span>2026</span>
         </div>
       </footer>

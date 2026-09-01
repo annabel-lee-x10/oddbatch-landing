@@ -219,6 +219,16 @@
   color: var(--faint);
 }
 
+.privacyLink {
+  color: var(--faint);
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+
+.privacyLink:hover {
+  color: var(--accent);
+}
+
 /* --- mobile --- */
 @media (max-width: 480px) {
   .wrap {
