@@ -1,197 +1,235 @@
-.main {
-  max-width: 660px;
+@keyframes ob-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.wrap {
+  width: 100%;
+  max-width: 620px;
   margin: 0 auto;
-  padding: 4rem 2rem 3rem;
-  font-family: var(--font-mono);
+  padding: 44px 22px 34px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 
-/* --- wordmark --- */
-.header {
-  margin-bottom: 4rem;
+/* --- top bar --- */
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.wordmark {
-  font-size: 1rem;
+.mark {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 5px 9px 6px;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
-.prompt {
+.dollar {
   color: var(--accent);
 }
 
-/* --- hero --- */
-.hero {
-  margin-bottom: 4rem;
+.caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.95em;
+  margin-left: 0.1em;
+  vertical-align: -0.08em;
+  background: var(--accent);
+  animation: ob-blink 1.1s steps(1) infinite;
 }
 
-.heroHeading {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+.toggle {
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.12s ease;
+}
+
+.toggle:hover {
+  color: var(--accent);
+}
+
+/* --- headline --- */
+.headline {
+  margin: 74px 0 0;
+  font-family: var(--font-serif);
   font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 1.25rem;
+  font-size: clamp(36px, 8.6vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 13em;
+  text-wrap: pretty;
 }
 
-.emphasis {
-  color: var(--accent);
+.em {
   font-style: italic;
+  font-weight: 400;
+  background: var(--mark);
+  box-shadow: 0 0 0 0.1em var(--mark);
+  border-radius: 1px;
 }
 
-.heroBody {
+/* --- lede --- */
+.lede {
+  margin: 30px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
   color: var(--muted);
-  font-size: 0.9rem;
-  max-width: 48ch;
+  max-width: 46em;
+  text-wrap: pretty;
 }
 
 /* --- sections --- */
-.section {
-  margin-bottom: 3rem;
+.shelf {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 72px;
 }
 
-.sectionLabel {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: var(--muted);
+.submit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 56px;
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  border-top: 1px solid var(--line);
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  color: var(--faint);
+  padding: 18px 0 14px;
 }
 
-/* --- shelf list --- */
-.shelfList {
-  list-style: none;
-}
-
-.shelfRow {
-  border-bottom: 1px solid var(--line);
-}
-
-.shelfRow:first-child {
-  border-top: 1px solid var(--line);
-}
-
-.shelfLink {
+/* --- shelf items --- */
+.item {
   display: grid;
-  grid-template-columns: 1.2rem 8rem 1fr auto;
-  gap: 0 0.75rem;
-  align-items: baseline;
-  padding: 0.7rem 0;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 4px 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
   text-decoration: none;
-  color: var(--ink);
 }
 
-.shelfLink:hover .rowName {
+.item:hover .caretmark {
   color: var(--accent);
 }
 
-.rowChevron {
-  color: var(--muted);
-  font-size: 0.85rem;
+.caretmark {
+  color: var(--faint);
   transition: color 0.12s ease;
 }
 
-.shelfLink:hover .rowChevron {
-  color: var(--accent);
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.rowSlug {
-  color: var(--accent);
-  font-size: 0.78rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.rowName {
-  font-weight: 500;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  transition: color 0.12s ease;
+.name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 400;
 }
 
-.rowTagline {
-  font-size: 0.85rem;
+.appSlug {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.7;
   color: var(--muted);
-  text-align: right;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* --- submit --- */
-.submitBody {
+/* --- submit text --- */
+.submitText {
+  font-size: 14px;
+  line-height: 1.8;
   color: var(--muted);
-  font-size: 0.9rem;
+  margin: 0;
+  text-wrap: pretty;
 }
 
-.submitBody a {
-  color: var(--ink);
-}
-
-.submitBody a:hover {
+.submitText a {
   color: var(--accent);
-  text-decoration-color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--linkline);
 }
 
-/* --- fineprint --- */
-.fineprint {
-  color: var(--muted);
-  font-size: 0.8rem;
-  margin-bottom: 3rem;
-  border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
+.submitText a:hover {
+  border-color: var(--accent);
+}
+
+/* --- spacer --- */
+.spacer {
+  flex: 1;
+  min-height: 76px;
 }
 
 /* --- footer --- */
 .footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.fine {
+  font-size: 12px;
+  line-height: 1.7;
   color: var(--muted);
-  font-size: 0.8rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
 }
 
 /* --- mobile --- */
 @media (max-width: 480px) {
-  .main {
-    padding: 2.5rem 1.25rem 2.5rem;
+  .wrap {
+    padding: 28px 16px 24px;
   }
 
-  .header {
-    margin-bottom: 2.5rem;
+  .headline {
+    margin-top: 52px;
   }
 
-  .hero {
-    margin-bottom: 2.5rem;
-  }
-
-  .shelfLink {
-    grid-template-columns: 1.2rem 1fr;
-    grid-template-rows: auto auto;
-    gap: 0.1rem 0.5rem;
-  }
-
-  .rowSlug {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .rowName {
-    grid-column: 2;
-    grid-row: 1;
-    display: none;
-  }
-
-  .rowTagline {
-    grid-column: 2;
-    grid-row: 2;
-    text-align: left;
+  .shelf {
+    margin-top: 52px;
   }
 }

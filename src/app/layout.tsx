@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Fraunces } from "next/font/google";
 import "./globals.css";
 
 const jetbrainsMono = localFont({
@@ -9,26 +10,33 @@ const jetbrainsMono = localFont({
   preload: true,
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "oddbatch — a quiet shelf for small apps",
   description:
-    "Independent apps, collected in one place. Not affiliated with any of them.",
+    "Independent tools built by people without marketing teams. Collected here because the good ones are hard to find.",
   metadataBase: new URL("https://oddbatch.app"),
   alternates: {
     canonical: "https://oddbatch.app",
   },
   openGraph: {
-    title: "oddbatch — a quiet shelf for small apps",
-    description:
-      "Independent apps, collected in one place. Not affiliated with any of them.",
+    title: "oddbatch",
+    description: "A quiet shelf for small apps.",
     url: "https://oddbatch.app",
     type: "website",
+    images: [{ url: "/og.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "oddbatch — a quiet shelf for small apps",
-    description:
-      "Independent apps, collected in one place. Not affiliated with any of them.",
+    title: "oddbatch",
+    description: "A quiet shelf for small apps.",
   },
   robots: {
     index: true,
@@ -42,7 +50,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en" className={`${jetbrainsMono.variable} ${fraunces.variable}`}>
+      <head>
+        {/* Restore persisted theme before first paint to avoid flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('oddbatch-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

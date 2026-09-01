@@ -1,60 +1,70 @@
 .main {
-  max-width: 660px;
+  max-width: 620px;
   margin: 0 auto;
-  padding: 4rem 2rem 3rem;
+  padding: 44px 22px 34px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 
 .nav {
-  margin-bottom: 4rem;
+  margin-bottom: 56px;
 }
 
 .back {
-  font-size: 0.85rem;
-  color: var(--muted);
+  font-size: 13px;
+  color: var(--faint);
   text-decoration: none;
-  transition: color 0.12s ease;
+  border-bottom: 1px solid transparent;
+  transition: color 0.12s ease, border-color 0.12s ease;
 }
 
 .back:hover {
   color: var(--accent);
+  border-color: var(--linkline);
 }
 
 .card {
-  margin-bottom: 4rem;
+  flex: 1;
 }
 
 .slug {
-  font-size: 0.78rem;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  margin-bottom: 16px;
 }
 
 .name {
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 7vw, 48px);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
 .tagline {
-  font-size: 1rem;
+  font-size: 14px;
+  line-height: 1.8;
   color: var(--muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 40px;
+  max-width: 40em;
+  text-wrap: pretty;
 }
 
 .visit {
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 13px;
   color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--accent);
-  transition: opacity 0.12s ease;
+  text-decoration: none;
+  border-bottom: 1px solid var(--linkline);
+  transition: border-color 0.12s ease;
 }
 
 .visit:hover {
-  opacity: 0.75;
+  border-color: var(--accent);
 }
 
 .footer {
@@ -62,17 +72,19 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
-  color: var(--muted);
-  font-size: 0.8rem;
+  padding-top: 24px;
+  margin-top: 76px;
+  color: var(--faint);
+  font-size: 11px;
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 480px) {
   .main {
-    padding: 2.5rem 1.25rem 2.5rem;
+    padding: 28px 16px 24px;
   }
 
   .nav {
-    margin-bottom: 2.5rem;
+    margin-bottom: 36px;
   }
 }
