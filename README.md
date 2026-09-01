@@ -21,7 +21,7 @@ Edit `content/apps.ts`. Each entry needs a name, a one-line description,
 a URL, a platform array, and an addedOn date. Keep the description under
 90 characters; the layout assumes one line.
 
-Open a PR or send it to oddbatchapp@gmail.com.
+Open a PR or send it to hello@oddbatch.app.
 
 ## License
 
