@@ -1,69 +1,69 @@
-import Image from "next/image";
+import apps from "../../content/apps";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className={styles.main}>
+      <header className={styles.header}>
+        <span className={styles.wordmark}>
+          <span className={styles.prompt}>$</span> oddbatch
+        </span>
+      </header>
+
+      <section className={styles.hero}>
+        <h1 className={styles.heroHeading}>
+          A <em className={styles.emphasis}>quiet</em> shelf for small apps.
+        </h1>
+        <p className={styles.heroBody}>
+          Independent tools built by people without marketing teams. Collected
+          here because the good ones are hard to find.
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionLabel}>ON THE SHELF</div>
+        {apps.length === 0 ? (
+          <p className={styles.emptyState}>
+            <span className={styles.chevron}>&gt;</span> first batch dropping soon
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        ) : (
+          <ul className={styles.shelfList}>
+            {apps.map((app) => (
+              <li key={app.name} className={styles.shelfRow}>
+                <a
+                  href={app.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.shelfLink}
+                >
+                  <span className={styles.appName}>{app.name}</span>
+                  <span className={styles.appDesc}>{app.oneLine}</span>
+                  <span className={styles.appPlatform}>
+                    {app.platform.join(" / ")}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionLabel}>SUBMIT</div>
+        <p className={styles.submitBody}>
+          Built something small and useful? Send it over &mdash;{" "}
+          <a href="mailto:hello@oddbatch.app">hello@oddbatch.app</a>
+        </p>
+      </section>
+
+      <p className={styles.fineprint}>
+        Not affiliated with any of them. No rankings, no cut. Just a shelf.
+      </p>
+
+      <footer className={styles.footer}>
+        <span>oddbatch.app</span>
+        <span>2026</span>
+      </footer>
+    </main>
   );
 }
