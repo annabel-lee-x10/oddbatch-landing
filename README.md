@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# oddbatch
 
-## Getting Started
+A one-page shelf for small independent apps. Live at https://oddbatch.app
 
-First, run the development server:
+oddbatch does not build, own, or represent any of the apps it lists.
+It is a list. There is no affiliate arrangement and there are no rankings.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js App Router, deployed on Vercel.
+No CSS framework, no UI library, no client-side JavaScript.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run it
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    npm install
+    npm run dev
 
-## Learn More
+## Adding an app to the shelf
 
-To learn more about Next.js, take a look at the following resources:
+Edit `content/apps.ts`. Each entry needs a name, a one-line description,
+a URL, a platform array, and an addedOn date. Keep the description under
+90 characters; the layout assumes one line.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open a PR or send it to hello@oddbatch.app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Code is MIT. App names and links belong to their makers.
