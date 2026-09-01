@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oddbatch.app/sitemap.xml
